@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  due_on: 2015-02-27
+  order: 1
+  content: MyString
+  complete: false
+
+two:
+  due_on: 2015-02-27
+  order: 1
+  content: MyString
+  complete: false
