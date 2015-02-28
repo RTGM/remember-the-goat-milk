@@ -25,6 +25,8 @@ class ToDosController < ApplicationController
   end
 
   def destroy
+    @todo.destroy
+    redirect_to root_path, notice: 'ToDo was DESTROYED!!!'
   end
 
   def create
