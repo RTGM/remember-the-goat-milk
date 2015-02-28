@@ -24,10 +24,10 @@
   <%= f.date_field :due_on %>
 </div>
 <div class="field">
-  <%= f.label :complete %><br>
-  <%= f.text_field :complete %>
+  <%= f.label "Check when this item is complete" %><br>
+  <%= f.check_box :complete %>
 </div>
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit "Create To-Do"%>
 </div>
 <% end %>
