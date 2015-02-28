@@ -43,7 +43,7 @@ class ToDosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:content, :due_on, :order, :complete)
+    params.require(:to_do).permit(:content, :due_on, :order, :complete)
   end
 
 end
