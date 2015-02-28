@@ -2,8 +2,18 @@ class ToDosController < ApplicationController
   before_action :set_todo, only: [:edit, :show, :update, :destroy]
 
   def index
-    @todos = ToDo.all
+    #@todos = ToDo.all
+    @todos = ToDo.rank(:order).all
   end
+
+  def update_row_order
+    @todo = ToDo.find(todo_params[:id])
+    @todo.row_order_position = todo_params[:row_order_position]
+    @todo.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
+
 
   def show
     redirect_to

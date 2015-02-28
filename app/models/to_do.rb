@@ -1,3 +1,5 @@
 class ToDo < ActiveRecord::Base
-  validates :content, :order, presence: true  
+  include RankedModel
+  ranks :order
+  validates :content, :order, presence: true
 end

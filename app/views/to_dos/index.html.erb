@@ -1,29 +1,22 @@
-<h3> My To-Do List </h3>
-<table>
+<table class="table table-bordered table-striped" id="sortable">
   <thead>
     <tr>
-      <th>Order</th>
       <th>Content</th>
       <th>Complete?</th>
       <th>Due On</th>
-      <th colspan="4"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody >
-    <% @todos.each do |todo| %>
-    <tr>
-      <td><%= todo.order %></td>
-      <td><%= todo.content %></td>
-      <td><%= todo.complete %></td>
-      <td><%= todo.due_on %></td>
-      <td><%= link_to 'Edit', edit_to_do_path(todo), class: "button tiny" %></td>
-      <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+  <tbody>
+    <% @todos.each do |t| %>
+    <tr data-item-id=<%= "#{t.id}" %> class="item">
+        <td><%= t.content %></td>
+        <td><%= t.complete %></td>
+        <td><%= t.due_on %></td>
+        <td><%= link_to 'Edit', edit_to_do_path(t), class: "btn btn-default pull-left" %>
+        <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default pull-left" %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
 <p><%= link_to "New To-Do Item", new_to_do_path %></p>
