@@ -16,3 +16,10 @@
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require_tree .
+$(document).ready(function(){
+
+  $('.submittable').click(function() {
+    $(this).parents('form:first').submit();
+  });
+
+});

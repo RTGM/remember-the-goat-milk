@@ -11,7 +11,10 @@
     <% @todos.each do |t| %>
     <tr data-item-id=<%= "#{t.id}" %> class="item">
         <td><%= t.content %></td>
-        <td><%= t.complete %></td>
+        <td><%= form_for t, :remote => true do |f| %>
+          <%= f.check_box :complete, :class => 'submittable' %>
+          <% end %>
+        </td>
         <td><%= t.due_on %></td>
         <td><%= link_to 'Edit', edit_to_do_path(t), class: "btn btn-default pull-left" %>
         <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default pull-left" %></td>
