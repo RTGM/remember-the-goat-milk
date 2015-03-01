@@ -5,4 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-ToDo.create(content: "This is a test TODO!")
+ToDo.create(content: "Go to the bakery and get a large chocolate cake.  Eat it all." )
+ToDo.create(content: "Watch the DVD on sharpening. Practice until your chisels are sharp enough to slice paper dangling in the air." )
+ToDo.create(content: "Visit the goat farm.  Immerse yourself in the herd." )
