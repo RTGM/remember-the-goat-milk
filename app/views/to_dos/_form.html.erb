@@ -13,7 +13,7 @@
 
 <div class="field">
   <%= f.label :content %><br>
-  <%= f.text_field :content %>
+  <%= f.text_area :content %>
 </div>
 <div class="field">
   <%= f.label :due_on %><br>
@@ -24,6 +24,6 @@
   <%= f.check_box :complete %>
 </div>
 <div class="actions">
-  <%= f.submit "Save To-Do"%>
+  <%= f.submit "Save Task"%>
 </div>
 <% end %>

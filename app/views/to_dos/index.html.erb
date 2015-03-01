@@ -1,25 +1,48 @@
-<table class="table table-bordered table-striped" id="sortable">
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Complete?</th>
-      <th>Due On</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @todos.each do |t| %>
-    <tr data-item-id=<%= "#{t.id}" %> class="item">
-        <td><%= t.content %></td>
-        <td><%= form_for t, :remote => true do |f| %>
-          <%= f.check_box :complete, :class => 'submittable' %>
-          <% end %>
-        </td>
-        <td><%= t.due_on %></td>
-        <td><%= link_to 'Edit', edit_to_do_path(t), class: "btn btn-default pull-left" %>
-        <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default pull-left" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<p><%= link_to "New To-Do Item", new_to_do_path %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Remember the Goat Milk</h1>
+      <p><%= link_to "New Task", new_to_do_path, class: "btn btn-default" %></p>
+        <div class="panel panel-default">
+        <table class="table table-bordered table-striped" id="sortable">
+          <colgroup>
+            <col class="col-xs-1">
+            <col class="col-xs-7">
+            <col class="col-xs-2">
+            <col class="col-xs-2">
+          </colgroup>
+          <thead>
+            <div class="row">
+              <tr>
+                <th>Complete?</th>
+                <th>Task</th>
+                <th>Due On</th>
+                <th>Options</th>
+              </tr>
+            </div>
+          </thead>
+          <tbody>
+            <% @todos.each do |t| %>
+            <div class="row">
+              <tr data-item-id=<%= "#{t.id}" %> class="item">
+                <td class="text-center"><%= form_for t, :remote => true do |f| %>
+                  <%= f.check_box :complete, :class => 'submittable' %>
+                  <% end %>
+                </td>
+                <td><%= t.content %></td>
+                <td><%= t.due_on %></td>
+                <td><%= link_to 'Edit', edit_to_do_path(t), class: "btn btn-default pull-center" %>
+                  <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default pull-center" %>
+                  <div class="btn btn-default pull-center">
+                  <span class="glyphicon glyphicon-sort pull-right" aria-hidden="true"></span>
+                </div>
+                </td>
+              </tr>
+            </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
