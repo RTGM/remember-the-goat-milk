@@ -1,36 +1,36 @@
-<%= form_for @todo, :html => {:class => "form-horizontal center"} do |f| %>
-<% if @todo.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+<%= form_for @todo, :html => {:class => "form-inline"} do |f| %>
+  <% if @todo.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
-  <ul>
+    <ul>
     <% @todo.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+      <li><%= message %></li>
     <% end %>
-  </ul>
-</div>
-<% end %>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
-      </div>
-      <div class="form-group">
-        <%= f.label :due_on %><br>
-        <%= f.date_field :due_on %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :complete%> Check when this item is complete
-      </div><br>
-    </div>
+    </ul>
   </div>
+<% end %>
+
+
+<div class="form-group">
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
 </div>
-<div class="actions">
-  <%= f.submit "Save Task", class: "btn btn-default"%>
+
+<div class="form-group">
+  <%= f.label :due_on %>
+  <%= f.date_field :due_on, class: 'form-control' %>
 </div>
-<br>
+
+<div class="checkbox">
+  <%= f.check_box :complete%> Check when this item is complete
+</div>
+
+<br><br>
+
+<div class="form-group">
+    <%= f.submit "Save Task", class: "btn btn-default"%>
+</div>
 
 <% end %>
+<br>
