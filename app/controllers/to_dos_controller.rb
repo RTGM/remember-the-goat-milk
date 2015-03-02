@@ -1,15 +1,15 @@
 class ToDosController < ApplicationController
-  before_action :set_todo, only: [:edit, :show, :update, :destroy]
+  before_action :set_to_do, only: [:edit, :show, :update, :destroy]
 
   def index
     #@todos = ToDo.all
-    @todos = ToDo.rank(:row_order).all
+    @to_dos = ToDo.rank(:row_order).all
   end
 
   def update_row_order
-    @todo = ToDo.find(params[:todo][:todo_id])
-    @todo.row_order_position = todo_params[:row_order_position]
-    @todo.save
+    @to_do = ToDo.find(params[:to_do][:to_do_id])
+    @to_do.row_order_position = to_do_params[:row_order_position]
+    @to_do.save
 
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
@@ -20,14 +20,14 @@ class ToDosController < ApplicationController
   end
 
   def new
-    @todo = ToDo.new
+    @to_do = ToDo.new
   end
 
   def edit
   end
 
   def update
-    if @todo.update(todo_params)
+    if @to_do.update(to_do_params)
       redirect_to root_path, notice: 'ToDo was successfully updated.'
     else
       render :edit
@@ -35,13 +35,13 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    @todo.destroy
+    @to_do.destroy
     redirect_to root_path, notice: 'ToDo was DESTROYED!!!'
   end
 
   def create
-    @todo = ToDo.new(todo_params)
-    if @todo.save
+    @to_do = ToDo.new(to_do_params)
+    if @to_do.save
       redirect_to root_path, notice: 'ToDo was successfully created.'
     else
       render :new
@@ -51,11 +51,11 @@ class ToDosController < ApplicationController
 
   private
 
-  def set_todo
-    @todo = ToDo.find(params[:id])
+  def set_to_do
+    @to_do = ToDo.find(params[:id])
   end
 
-  def todo_params
+  def to_do_params
     params.require(:to_do).permit(:content, :due_on, :row_order, :complete)
   end
 

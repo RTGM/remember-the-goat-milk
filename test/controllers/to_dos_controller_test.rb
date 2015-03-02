@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ToDosControllerTest < ActionController::TestCase
   setup do
-    @todo = to_dos(:one)
+    @to_do = to_dos(:one)
   end
 
   test "should get index" do
@@ -17,25 +17,25 @@ class ToDosControllerTest < ActionController::TestCase
 
   test "should create to_do" do
     assert_difference('ToDo.count') do
-      post :create, to_do: { due_on: @todo.due_on, content: @todo.content, complete: @todo.complete }
+      post :create, to_do: { due_on: @to_do.due_on, content: @to_do.content, complete: @to_do.complete }
     end
 
     assert_redirected_to root_path
   end
 
   test "should get edit" do
-    get :edit, id: @todo
+    get :edit, id: @to_do
     assert_response :success
   end
 
   test "should update to_do" do
-    patch :update, id: @todo, to_do: { due_on: @todo.due_on, order: @todo.order, content: @todo.content, complete: @todo.complete }
+    patch :update, id: @to_do, to_do: { due_on: @to_do.due_on, order: @to_do.order, content: @to_do.content, complete: @to_do.complete }
     assert_redirected_to root_path
   end
 
   test "should destroy to_do" do
     assert_difference('ToDo.count', -1) do
-      delete :destroy, id: @todo
+      delete :destroy, id: @to_do
     end
 
     assert_redirected_to root_path

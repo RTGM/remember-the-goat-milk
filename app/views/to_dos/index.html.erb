@@ -32,7 +32,7 @@
             </div>
           </thead>
           <tbody>
-            <% @todos.each do |t| %>
+            <% @to_dos.each do |t| %>
             <div class="row">
               <tr data-item-id=<%= "#{t.id}" %> class="item">
                 <td class="text-center"><%= form_for t, :remote => true do |f| %>

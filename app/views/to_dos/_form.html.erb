@@ -1,10 +1,10 @@
-<%= form_for @todo, :html => {:class => "form-inline"} do |f| %>
-  <% if @todo.errors.any? %>
+<%= form_for @to_do, :html => {:class => "form-inline"} do |f| %>
+  <% if @to_do.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+    <h2><%= pluralize(@to_do.errors.count, "error") %> prohibited this to_do from being saved:</h2>
 
     <ul>
-    <% @todo.errors.full_messages.each do |message| %>
+    <% @to_do.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
     </ul>
