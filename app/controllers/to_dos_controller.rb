@@ -1,5 +1,5 @@
 class ToDosController < ApplicationController
-  before_action :set_to_do, only: [:edit, :show, :update, :destroy]
+  before_action :set_to_do, only: [:edit, :show, :update, :destroy ]
 
   def index
     #@todos = ToDo.all
@@ -7,14 +7,13 @@ class ToDosController < ApplicationController
   end
 
   def update_row_order
-    @to_do = ToDo.find(params[:to_do][:to_do_id])
+    @to_do = ToDo.find(to_do_params[:to_do_id])
     @to_do.row_order_position = to_do_params[:row_order_position]
     @to_do.save
 
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
-###ORDER IS A RESERVED WORD...FIX THAT
   def show
     redirect_to
   end
@@ -56,7 +55,7 @@ class ToDosController < ApplicationController
   end
 
   def to_do_params
-    params.require(:to_do).permit(:content, :due_on, :row_order, :complete)
+    params.require(:to_do).permit(:to_do_id, :content, :due_on, :row_order_position, :complete)
   end
 
 end
