@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227164151) do
+ActiveRecord::Schema.define(version: 20150302150451) do
 
   create_table "to_dos", force: :cascade do |t|
     t.date     "due_on"
-    t.integer  "order"
     t.string   "content"
     t.boolean  "complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "row_order"
   end
 
 end
