@@ -7,14 +7,14 @@ class ToDosController < ApplicationController
   end
 
   def update_row_order
-    @todo = ToDo.find(todo_params[:id])
+    @todo = ToDo.find(params[:todo][:todo_id])
     @todo.row_order_position = todo_params[:row_order_position]
     @todo.save
 
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
-
+###ORDER IS A RESERVED WORD...FIX THAT
   def show
     redirect_to
   end
