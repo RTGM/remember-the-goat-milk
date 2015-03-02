@@ -3,7 +3,7 @@ class ToDosController < ApplicationController
 
   def index
     #@todos = ToDo.all
-    @todos = ToDo.rank(:order).all
+    @todos = ToDo.rank(:row_order).all
   end
 
   def update_row_order
@@ -56,7 +56,7 @@ class ToDosController < ApplicationController
   end
 
   def todo_params
-    params.require(:to_do).permit(:content, :due_on, :order, :complete)
+    params.require(:to_do).permit(:content, :due_on, :row_order, :complete)
   end
 
 end
